@@ -35,10 +35,10 @@ namespace CoreWCF.ConfigurationManager.Tests
                     <security mode=""{expectedSecurityMode}"">
                     <message clientCredentialType=""{clientCredType}"" />
                      </security>
-                    <readerQuotas maxDepth=""{expectedMaxDepth}"" />                    
+                    <readerQuotas maxDepth=""{expectedMaxDepth}"" />
                 </binding >
-            </wsHttpBinding>                             
-        </bindings>                             
+            </wsHttpBinding>
+        </bindings>
     </system.serviceModel>
 </configuration>";
 
@@ -50,7 +50,7 @@ namespace CoreWCF.ConfigurationManager.Tests
 
                     var actualBinding = settingHolder.ResolveBinding(nameof(WSHttpBinding), expectedName) as WSHttpBinding;
                     Assert.Equal(expectedName, actualBinding.Name);
-                    Assert.Equal(expectedMaxReceivedMessageSize, actualBinding.MaxReceivedMessageSize);                 
+                    Assert.Equal(expectedMaxReceivedMessageSize, actualBinding.MaxReceivedMessageSize);
                     Assert.Equal(expectedDefaultTimeout, actualBinding.CloseTimeout);
                     Assert.Equal(expectedDefaultTimeout, actualBinding.OpenTimeout);
                     Assert.Equal(expectedDefaultTimeout, actualBinding.SendTimeout);
@@ -64,7 +64,7 @@ namespace CoreWCF.ConfigurationManager.Tests
         }
 
         [Fact]
-        [Trait("Category", "NetCoreOnly")]
+        //[Trait("Category", "NetCoreOnly")]
         public void WSHttpBinding_WithDefaultSetting()
         {
             string expectedName = "wsHttpBindingConfig";
@@ -79,8 +79,8 @@ namespace CoreWCF.ConfigurationManager.Tests
         <bindings>         
             <wsHttpBinding>
                 <binding name=""{expectedName}""/>
-            </wsHttpBinding>                             
-        </bindings>                             
+            </wsHttpBinding>
+        </bindings>
     </system.serviceModel>
 </configuration>";
 
