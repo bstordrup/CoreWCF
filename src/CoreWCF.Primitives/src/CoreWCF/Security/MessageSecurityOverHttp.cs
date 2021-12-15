@@ -34,15 +34,15 @@ namespace CoreWCF
                     throw DiagnosticUtility.ExceptionUtility.ThrowHelperError(new ArgumentOutOfRangeException(nameof(value)));
                 }
 
-                if(value is MessageCredentialType.Windows)
-                {
-                    //TODO Remove this after .net 5+
-                    string frameworkDescription = RuntimeInformation.FrameworkDescription;
-                    if (frameworkDescription.IndexOf(NetFrameworkFrameworkName, StringComparison.Ordinal) >= 0)
-                    {
-                        throw new PlatformNotSupportedException("Windows auth only supported on .NET Core");
-                    }
-                }
+                //if(value is MessageCredentialType.Windows)
+                //{
+                //    //TODO Remove this after .net 5+
+                //    string frameworkDescription = RuntimeInformation.FrameworkDescription;
+                //    if (frameworkDescription.IndexOf(NetFrameworkFrameworkName, StringComparison.Ordinal) >= 0)
+                //    {
+                //        throw new PlatformNotSupportedException("Windows auth only supported on .NET Core");
+                //    }
+                //}
 
                 _clientCredentialType = value;
             }
@@ -111,7 +111,7 @@ namespace CoreWCF
             else
             {
                 throw new PlatformNotSupportedException();
-                //TODO 
+                //TODO
                 //if (negotiateServiceCredential)
                 //{
                 //    switch (this.clientCredentialType)
